@@ -21,5 +21,6 @@ public class CardTest {
     assertEquals(SuitType.HEARTS, card.getSuit());
   }
 
+
  
 }

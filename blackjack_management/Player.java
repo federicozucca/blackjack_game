@@ -1,17 +1,22 @@
 package blackjack_management;
+import java.util.*;
 
 public class Player {
 
   private String name;
-  private int hands;
+  private Hand hand;
 
   public Player(String name){
     this.name = name;
-    this.hands = 0;
+    this.hand = hand;
   }
 
   public String getName(){
     return this.name;
+  }
+
+  public void getHand(){
+    
   }
 
   
