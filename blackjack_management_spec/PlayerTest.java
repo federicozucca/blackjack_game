@@ -5,10 +5,12 @@ import blackjack_management.*;
 public class PlayerTest {
 
   Player player;
+  Hand hand;
 
   @Before
   public void before(){
-    player = new Player("Federico");
+    player = new Player("Federico",hand);
+    hand = new Hand();
   }
 
   @Test

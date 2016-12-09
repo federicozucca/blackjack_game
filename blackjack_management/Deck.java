@@ -25,6 +25,11 @@ public ArrayList<Card> getDeck(){
   return cards;
 }
 
+
+public Card dealCard(){
+  return cards.remove(0);
+}
+
   
 
   

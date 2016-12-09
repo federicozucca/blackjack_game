@@ -6,7 +6,7 @@ public class Player {
   private String name;
   private Hand hand;
 
-  public Player(String name){
+  public Player(String name, Hand hand){
     this.name = name;
     this.hand = hand;
   }
@@ -15,7 +15,8 @@ public class Player {
     return this.name;
   }
 
-  public void getHand(){
+  public Hand getHand(){
+    return this.hand;
     
   }
 

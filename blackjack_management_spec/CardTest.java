@@ -21,6 +21,11 @@ public class CardTest {
     assertEquals(SuitType.HEARTS, card.getSuit());
   }
 
+  @Test
+  public void canGetValue() {
+    assertEquals(1, card.getValue());
+  }
+
 
  
 }

@@ -8,7 +8,7 @@ public class Hand {
   public Hand(){
     this.hand = new ArrayList<Card>();
   }
-  
+
   public int countCards(){
     return hand.size();
   }
@@ -17,6 +17,13 @@ public class Hand {
     this.hand.add(card);
   }
 
- 
+  public int getHandValue(){
+    int sum = 0;
+    for(Card card: hand ){
+      sum += card.getValue();
+    }
+    return sum;
+  }
+
 
 }
