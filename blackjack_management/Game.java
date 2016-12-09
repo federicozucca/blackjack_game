@@ -8,13 +8,13 @@ public class Game {
 
   public Game(){
     this.players = new ArrayList<Player>();
-  }
+}
 
-  public void populatePlayer(Player player){
+public void populatePlayer(Player player){
     this.players.add(player);
-  }
+}
 
-  public String getWinner(){
+public String getWinner(){
     Player player1 = this.players.get(0);
     Player player2 = this.players.get(1);
     int player1Score = player1.getHand().getHandValue();
@@ -30,18 +30,22 @@ public class Game {
     else{
         return player1.getName() +" and "+ player2.getName() +" drew!";
 
-     }
     }
+}
 
-    public void createDeck(){
+public void createDeck(){
 
     deck = new Deck();
     deck.createDeck();
     ArrayList<Card> cards = deck.getDeck();
-    }
+}
 
 
-    public void dealCardsToPlayersAndStartGame(){
+public void dealCardsToPlayersAndStartGame(){
+
+    
+
+
     Card card1 = deck.dealCard();
     Card card2 = deck.dealCard();
     Card card3 = deck.dealCard();
@@ -64,17 +68,32 @@ public class Game {
     int score2 = player2.getHand().getHandValue();
     System.out.println( player2.getName() + "'s score is: " + score2 );
 
+
+
+    Card card5 = deck.dealCard();
+    Card card6 = deck.dealCard();
+
+    hand1.addCard(card5);
+    hand2.addCard(card6);
+
+    int score3 = player1.getHand().getHandValue();
+    int score4 = player2.getHand().getHandValue();
+
+    System.out.println( "adding a card " );
+         
+    System.out.println( player1.getName() + "'s score is: " + score3 );
+
+    System.out.println( player2.getName() + "'s score is: " + score4 );
+
     populatePlayer(player1);
     populatePlayer(player2);
-    System.out.println( getWinner() );
-    }
 
-    public void play(){   
-    createDeck();
-    dealCardsToPlayersAndStartGame();
-  
+    System.out.println( getWinner() );
 }
 
-
+public void play(){   
+    createDeck();
+    dealCardsToPlayersAndStartGame();
+    } 
 
 }
