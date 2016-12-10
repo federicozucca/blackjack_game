@@ -18,12 +18,8 @@ public class Deck {
         cards.add(new Card(number, suit));
       }
     }
-  }
-
-public ArrayList<Card> getDeck(){
   Collections.shuffle(cards);
-  return cards;
-}
+  }
 
 
 public Card dealCard(){
