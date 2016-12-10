@@ -1,5 +1,6 @@
 package blackjack_management;
 import java.util.*;
+import java.io.*;
 
 public class Game {
 
@@ -48,24 +49,26 @@ public void playerScore(){
 }
 
 public void nextTurnPlayer(){
-    System.out.print(players.get(1).getName() +" Would you like to add a card? (yes/no):");
+    System.out.print(players.get(1).getName() +", would you like to add a card? (yes/no):");
     String input = System.console().readLine();
-    if (input == "yes"){
+    if ("yes".equals(input)){
         Card card5 = deck.dealCard();
-        players.get(1).getHand().addCard(card5);
+        this.players.get(1).getHand().addCard(card5);
         int score1 = players.get(1).getHand().getHandValue();
         System.out.println( players.get(1).getName() + "'s score is: " + score1 );
     } 
+    else System.out.println( players.get(1).getName() + "'s score is: " + players.get(1).getHand().getHandValue());
 }
 public void nextTurnDealer(){
-    System.out.print(players.get(1).getName() +" Would you like to add a card? (yes/no):");
+    System.out.print(players.get(0).getName() +", would you like to add a card? (yes/no):");
     String input = System.console().readLine();
-    if (input == "yes"){
+    if ("yes".equals(input)){
         Card card6 = deck.dealCard();
-        players.get(0).getHand().addCard(card6);
+        this.players.get(0).getHand().addCard(card6);
         int score2 = players.get(0).getHand().getHandValue();
         System.out.println( players.get(0).getName() + "'s score is: " + score2 );
     } 
+    else System.out.println( players.get(0).getName() + "'s score is: " + players.get(0).getHand().getHandValue());
 }
 
 public String getWinner(){
