@@ -59,17 +59,45 @@ public void nextTurnPlayer(){
     } 
     else System.out.println( players.get(1).getName() + "'s score is: " + players.get(1).getHand().getHandValue());
 }
+
+public void keepGoingPlayer(){
+int score1 = players.get(1).getHand().getHandValue();
+if (score1 <21) {nextTurnPlayer();}
+else System.out.println( players.get(1).getName() + " is bust! The winner is: " + players.get(0).getName());
+}
+
+public void checkPlayerBust(){
+int score1 = players.get(1).getHand().getHandValue();
+if (score1 >21){ System.out.println( players.get(1).getName() + " is bust! The winner is: " + players.get(0).getName());}
+}
+
 public void nextTurnDealer(){
+    int score1 = players.get(1).getHand().getHandValue();
+    if(score1<21){
     System.out.print(players.get(0).getName() +", would you like to add a card? (yes/no):");
     String input = System.console().readLine();
     if ("yes".equals(input)){
-        Card card6 = deck.dealCard();
-        this.players.get(0).getHand().addCard(card6);
+        Card card7 = deck.dealCard();
+        this.players.get(0).getHand().addCard(card7);
         int score2 = players.get(0).getHand().getHandValue();
         System.out.println( players.get(0).getName() + "'s score is: " + score2 );
     } 
     else System.out.println( players.get(0).getName() + "'s score is: " + players.get(0).getHand().getHandValue());
 }
+    else System.out.println( players.get(0).getName() + " Wins!");
+}
+
+public void keepGoingDealer(){
+int score2 = players.get(0).getHand().getHandValue();
+if (score2 <21) {nextTurnDealer();}
+else System.out.println( players.get(0).getName() + " is bust! The winner is: " + players.get(1).getName());
+}
+
+public void checkDealerBust(){
+int score2 = players.get(0).getHand().getHandValue();
+if (score2 >21){ System.out.println( players.get(0).getName() + " is bust! The winner is: " + players.get(1).getName());}
+}
+
 
 public String getWinner(){
     Player player1 = this.players.get(0);
@@ -77,6 +105,7 @@ public String getWinner(){
     int player1Score = player1.getHand().getHandValue();
     int player2Score = player2.getHand().getHandValue();
 
+    
     if (player1Score > player2Score){
         return "The winner is "+ player1.getName();
     }
@@ -97,9 +126,14 @@ public void play(){
     firstTurnPlayer();
     playerScore();
     nextTurnPlayer();
+    keepGoingPlayer();
+    checkPlayerBust();
     nextTurnDealer();
-    getWinner();
-    System.out.println( getWinner() );
+    keepGoingDealer();
+    checkDealerBust();
+
+    // getWinner();
+    // System.out.println( getWinner() );
 
 }
 }
