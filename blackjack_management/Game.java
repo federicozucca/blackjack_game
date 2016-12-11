@@ -15,8 +15,7 @@ public void populatePlayer(Player player){
     this.players.add(player);
 }
 
-public void initialize(){
-
+public void initialize(){    
     deck = new Deck();
     deck.createDeck();
     Hand hand1 = new Hand();
@@ -32,7 +31,9 @@ public void firstTurnDealer(){
     Card card1 = deck.dealCard();
     Card card3 = deck.dealCard();
     this.players.get(0).getHand().addCard(card1);
+    System.out.println( players.get(0).getName() + "'s first card is: " + card1.getValue());
     this.players.get(0).getHand().addCard(card3);
+    System.out.println( players.get(0).getName() + "'s second card is: " + card3.getValue());
 }
 
 
@@ -40,13 +41,16 @@ public void firstTurnPlayer(){
     Card card2 = deck.dealCard();
     Card card4 = deck.dealCard();
     this.players.get(1).getHand().addCard(card2);
+    System.out.println( players.get(1).getName() + "'s first card is: " + card2.getValue());
     this.players.get(1).getHand().addCard(card4);
+    System.out.println( players.get(1).getName() + "'s second card is: " + card4.getValue());
 }
 
 public void playerScore(){
     System.out.println( players.get(0).getName() + "'s score is: " + players.get(0).getHand().getHandValue());
     System.out.println( players.get(1).getName() + "'s score is: " + players.get(1).getHand().getHandValue());
 }
+
 
 public void nextTurnPlayer(){
     System.out.print(players.get(1).getName() +", would you like to add a card? (yes/no):");
@@ -134,15 +138,23 @@ public String getWinner(){
 
 
 public void play(){
+    System.out.println("Welcome to Black Jack");
+    System.out.println("*****************************");
+
     initialize();
     firstTurnDealer();
+    System.out.println("*****************************");
+    initialize();
     firstTurnPlayer();
+    System.out.println("*****************************");
     playerScore();
+    System.out.println("*****************************");
     nextTurnPlayer();
     keepGoingPlayer();
+    System.out.println("*****************************");
     nextTurnDealer();
     keepGoingDealer();
-    keepGoingDealer();
+    System.out.println("*****************************");
     getWinner();
     System.out.println( getWinner() );
 
