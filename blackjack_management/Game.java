@@ -53,7 +53,7 @@ public void playerScore(){
 
 
 public void nextTurnPlayer(){
-    System.out.print(players.get(1).getName() +", would you like to add a card? (yes/no):");
+    System.out.print(players.get(1).getName() +" your score is: "+ players.get(1).getHand().getHandValue()+", would you like to add a card? (yes/no):");
     String input = System.console().readLine();
     if ("yes".equals(input)){
         Card card5 = deck.dealCard();
@@ -71,7 +71,7 @@ if (score1 <21) {nextTurnPlayer();}
 
 
 public void nextTurnDealer(){
-    System.out.print(players.get(0).getName() +", would you like to add a card? (yes/no):");
+    System.out.print(players.get(0).getName() +" your score is: "+ players.get(0).getHand().getHandValue()+", would you like to add a card? (yes/no):");
     String input = System.console().readLine();
     if ("yes".equals(input)){
         Card card6 = deck.dealCard();
